@@ -85,7 +85,7 @@ HttpRequest req, ILogger log, string countrycode)
         HttpRequest req, ILogger log, string id)
         {
             IList<ICustomer> customers = _fileService.ReadCustomerEntities();
-            
+            if(customers != null)
             {
                 return new OkObjectResult(customers.Where(c => c.Id == id).FirstOrDefault());
             }
